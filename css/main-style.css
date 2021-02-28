@@ -3,16 +3,32 @@ html, body{
     width: 100%;
     margin: 0;
     background-color: #0f0f0f;
-    font-family: Roboto, sans-serif;
     color: #FFFFFF;
+}
+h1, a, p, label, input{
+    font-family: Roboto, sans-serif;
+}
+.link-text:hover{
+    cursor: pointer;
+}
+.link-text{
+    color: #2eb4fa;
+    text-decoration: underline;
+    width: fit-content;
 }
 .site-header{
     width: 100%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 .site-content{
     width: 100%;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 .site-footer{
     width: 100%;
     text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
