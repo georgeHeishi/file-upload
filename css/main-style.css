@@ -1,0 +1,18 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #0f0f0f;
+    font-family: Roboto, sans-serif;
+    color: #FFFFFF;
+}
+.site-header{
+    width: 100%;
+}
+.site-content{
+    width: 100%;
+}
+.site-footer{
+    width: 100%;
+    text-align: center;
+}
