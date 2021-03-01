@@ -22,38 +22,38 @@ document.addEventListener("DOMContentLoaded", () => {
             switching = false;
             rows = table.rows;
             for (i = 1; i < (rows.length - 1); i++) {
-
                 shouldSwitch = false;
                 // Get the two elements you want to compare,
                 // one from current row and one from the next:
-                x = rows[i].getElementsByTagName("TD")[collum];
-                y = rows[i + 1].getElementsByTagName("TD")[collum];
-
+                x = rows[i].getElementsByTagName("TD")[collum].children[0].innerHTML;
+                y = rows[i + 1].getElementsByTagName("TD")[collum].children[0].innerHTML;
+                let xDate = new Date((x.trim() === "") ? 0 : x);
+                let yDate = new Date((y.trim() === "") ? 0 : y);
                 //compare appropriate collums
                 //0-collum file name [String]
                 //1-collum file size [Number]
                 //2-collum file date [Date]
                 if (direction === "asc") {
-                    if ((collum === 0) && (x.children[0].innerHTML.toLowerCase() > y.children[0].innerHTML.toLowerCase())) {
+                    if ((collum === 0) && (x.toLowerCase() > y.toLowerCase())) {
                         shouldSwitch = true;
                         break;
-                    } else if ((collum === 1) && (Number(x.children[0].innerHTML) > Number(y.children[0].innerHTML))) {
+                    } else if ((collum === 1) && (Number(x) > Number(y))) {
                         shouldSwitch = true;
                         break
-                    } else if ((collum === 2) && (new Date(x.children[0].innerHTML) > new Date(y.children[0].innerHTML))) {
+                    } else if ((collum === 2) && (xDate > yDate)) {
                         shouldSwitch = true;
                         break
                     }
                 } else if (direction === "desc") {
-                    if ((collum === 0) && (x.children[0].innerHTML.toLowerCase() < y.children[0].innerHTML.toLowerCase())) {
+                    if ((collum === 0) && (x.toLowerCase() < y.toLowerCase())) {
                         shouldSwitch = true;
                         break;
-                    } else if ((collum === 1) && (Number(x.children[0].innerHTML) < Number(y.children[0].innerHTML))) {
+                    } else if ((collum === 1) && (Number(x) < Number(y))) {
                         shouldSwitch = true;
                         break
-                    } else if ((collum === 2) && (new Date(x.children[0].innerHTML) < new Date(y.children[0].innerHTML))) {
+                    } else if ((collum === 2) && (xDate < yDate)) {
                         shouldSwitch = true;
-                        break
+                        break;
                     }
                 }
             }
