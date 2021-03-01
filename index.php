@@ -1,7 +1,8 @@
 <?php
-$path = '../files/';
-$files = scandir($path);
-?>
+include 'helpers/filePathChecker.php';
+$subPath = $_GET['dir'] ?? null;
+$path = '../files/' . $subPath;
+$files = scandir($path); ?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -26,9 +27,9 @@ $files = scandir($path);
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg">
-                        <a class="link-text">
+                        <a class="link-text" href="?dir=<?php echo subtractUpperPath($path)?>">
                             Back
-                        <a>
+                            <a>
                     </div>
                 </div>
                 <div class="row">
@@ -62,31 +63,29 @@ $files = scandir($path);
                                 ?>
                                 <tr class="table-row<?php echo $row; ?>">
                                     <td class="cell-<?php echo $fileType; ?>">
+                                        <?php if (!strcmp($fileType, "dir")) { ?>
+                                            <a href="?dir=<?php echo subtractLowerPath($path, $file); ?>">
+                                                <?php echo $file; ?>
+                                            </a>
+                                        <?php } else { ?>
+                                            <p>
+                                                <?php echo $file; ?>
+                                            </p>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
                                         <p>
-                                            <?php
-                                            echo $file;
-                                            ?>
+                                            <?php echo $fileSize; ?>
                                         </p>
                                     </td>
                                     <td>
                                         <p>
-                                            <?php
-                                            echo $fileSize;
-                                            ?>
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <p>
-                                            <?php
-                                            echo $fileTimestamp;
-                                            ?>
+                                            <?php echo $fileTimestamp; ?>
                                         </p>
                                     </td>
                                 </tr>
-                                <?php
-                                $row++;
-                            }
-                            ?>
+                                <?php $row++;
+                            } ?>
                         </table>
                     </div>
                 </div>
