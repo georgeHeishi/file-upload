@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/upload-style.css">
     <script src="js/uploadScript.js"></script>
 </head>
 <body>
@@ -29,13 +30,16 @@
                     <input type="text" name="fileName" id="file-name" placeholder="File name">
                 </div>
                 <div class="mt-3 mb-3">
-                    <label for="file-input">File</label>
-                    <input type="file" name="fileInput" id="file-input">
+                    <input type="file" name="fileInput" id="file-input" class="form-control-file">
                 </div>
                 <div class="mt-3 mb-3">
                     <button type="button" id="submit" class="btn btn-outline-primary">Submit</button>
                 </div>
             </form>
+            <div>
+                <p id="response-text" class="response">
+                </p>
+            </div>
         </main>
     </div>
 </div>
