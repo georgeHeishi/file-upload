@@ -1,34 +1,58 @@
-html, body{
-    height: 100%;
+html, body {
     width: 100%;
-    margin: 0;
     background-color: #0f0f0f;
     color: #FFFFFF;
+    margin: 0;
 }
-h1, a, p, label, input{
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 120px;
+}
+
+h1, a, p, label, input {
     font-family: Roboto, sans-serif;
 }
-.link-text:hover{
+
+.link-text:hover {
     cursor: pointer;
 }
-.link-text{
+
+.link-text {
     color: #2eb4fa;
     text-decoration: underline;
     width: fit-content;
 }
-.site-header{
+
+.site-header {
     width: 100%;
-    margin-bottom: 2%;
-    margin-top: 2%;
 }
-.site-content{
+
+.site-content {
     width: 100%;
-    margin-top: 4%;
-    margin-bottom: 4%;
 }
-.site-footer{
+
+.site-footer {
     width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+}
+
+.site-footer > .container {
     text-align: center;
-    margin-bottom: 2%;
-    margin-top: 2%;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.site-footer ul p {
+    margin-bottom: 0;
 }
