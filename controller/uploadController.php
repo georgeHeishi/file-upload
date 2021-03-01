@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 $response = array();
+//echo json_encode($_FILES);
 try {
     // Undefined | Multiple Files | $_FILES Corruption Attack
     // If this request falls under any of them, treat it invalid.
@@ -38,7 +39,7 @@ try {
     // DO NOT USE $_FILES['fileInput']['name'] WITHOUT ANY VALIDATION !!
     // On this example, obtain safe unique name from its binary data.
     if (!move_uploaded_file(
-        $_FILES['fileInput']['tmp_name'], '../files/' . $_POST['fileName'] . '_' . time() . "." . $ext
+        $_FILES['fileInput']['tmp_name'], '/home/xlapcak/public_html//files/' . $_POST['fileName'] . '_' . time() . "." . $ext
     )) {
         throw new RuntimeException('Failed to move uploaded file.');
     }
