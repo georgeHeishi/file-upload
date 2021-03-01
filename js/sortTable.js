@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //https://www.w3schools.com/howto/howto_js_sort_table.asp
     function sortTable(n) {
         let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.querySelector(".file-table");
+        table = document.querySelector("#file-table");
         switching = true;
         //Set the sorting direction to ascending:
         dir = "asc";
