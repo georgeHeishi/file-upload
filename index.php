@@ -3,11 +3,16 @@ include 'helpers/filePathChecker.php';
 try {
     $subPath = $_GET['dir'] ?? null;
     $path = '/home/xlapcak/public_html/files/' . $subPath;
+    echo substractQuery($path);
     if (!($files = scandir($path))) {
         throw new Exception('Invalid path');
+    }else if(substr_count(substractQuery($path), '..') > 0){
+        throw new Exception('Forbidden path');
+    }else if(substr_count(substractQuery($path), '.') > 0){
+        throw new Exception('Forbidden path');
     }
-}catch(Exception $e){
-    header( 'Location: /file-upload/ ');
+} catch (Exception $e) {
+    header('Location: /file-upload/ ');
 }
 ?>
 <!DOCTYPE html>

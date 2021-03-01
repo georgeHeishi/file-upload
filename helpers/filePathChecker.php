@@ -26,3 +26,7 @@ function subtractLowerPath($path, $dir)
     return $subPath . $dir . '/';
 }
 
+function substractQuery($path){
+    $rootLen = strlen(ROOT_PATH);
+    return substr($path, $rootLen);
+}
