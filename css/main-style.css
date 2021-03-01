@@ -23,13 +23,13 @@ h1, a, p, label, input {
 }
 
 .link-text {
+    width: fit-content;
     color: #2eb4fa;
     text-decoration: underline;
-    width: fit-content;
 }
 
-.site-header {
-    width: 100%;
+.link-text > i {
+    font-size: 2.5rem;
 }
 
 .site-content {
@@ -55,4 +55,17 @@ h1, a, p, label, input {
 
 .site-footer ul p {
     margin-bottom: 0;
+}
+
+@media only screen and (max-width: 400px) {
+    .row > * {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    html{
+        width: 350px;
+    }
 }
