@@ -70,7 +70,7 @@ $files = scandir($path); ?>
                     }
                     $fileType = filetype("$path$file");
                     $fileSize = filesize("$path$file");
-                    $fileTimestamp = date('d-m-Y', filectime("$path$file"));
+                    $fileTimestamp = date('Y-m-d', filectime("$path$file"));
                     if (!strcmp($fileType, "dir")) {
                         $fileSize = "";
                         $fileTimestamp = "";

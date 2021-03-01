@@ -11,55 +11,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //https://www.w3schools.com/howto/howto_js_sort_table.asp
-    function sortTable(n) {
-        let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    function sortTable(collum) {
+        let table, rows, switching, i, x, y, shouldSwitch, direction, switchcount = 0;
         table = document.querySelector("#file-table");
         switching = true;
-        //Set the sorting direction to ascending:
-        dir = "asc";
-        /*Make a loop that will continue until
-        no switching has been done:*/
+        direction = "asc";
+        // console.log("help me god "+collum);
         while (switching) {
-            //start by saying: no switching is done:
+            //initialise switching by saying no switching to be done
             switching = false;
             rows = table.rows;
-            /*Loop through all table rows (except the
-            first, which contains table headers):*/
             for (i = 1; i < (rows.length - 1); i++) {
-                //start by saying there should be no switching:
+
                 shouldSwitch = false;
-                /*Get the two elements you want to compare,
-                one from current row and one from the next:*/
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /*check if the two rows should switch place,
-                based on the direction, asc or desc:*/
-                if (dir === "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        //if so, mark as a switch and break the loop:
+                // Get the two elements you want to compare,
+                // one from current row and one from the next:
+                x = rows[i].getElementsByTagName("TD")[collum];
+                y = rows[i + 1].getElementsByTagName("TD")[collum];
+
+                //compare appropriate collums
+                //0-collum file name [String]
+                //1-collum file size [Number]
+                //2-collum file date [Date]
+                if (direction === "asc") {
+                    if ((collum === 0) && (x.children[0].innerHTML.toLowerCase() > y.children[0].innerHTML.toLowerCase())) {
                         shouldSwitch = true;
                         break;
+                    } else if ((collum === 1) && (Number(x.children[0].innerHTML) > Number(y.children[0].innerHTML))) {
+                        shouldSwitch = true;
+                        break
+                    } else if ((collum === 2) && (new Date(x.children[0].innerHTML) > new Date(y.children[0].innerHTML))) {
+                        shouldSwitch = true;
+                        break
                     }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        //if so, mark as a switch and break the loop:
+                } else if (direction === "desc") {
+                    if ((collum === 0) && (x.children[0].innerHTML.toLowerCase() < y.children[0].innerHTML.toLowerCase())) {
                         shouldSwitch = true;
                         break;
+                    } else if ((collum === 1) && (Number(x.children[0].innerHTML) < Number(y.children[0].innerHTML))) {
+                        shouldSwitch = true;
+                        break
+                    } else if ((collum === 2) && (new Date(x.children[0].innerHTML) < new Date(y.children[0].innerHTML))) {
+                        shouldSwitch = true;
+                        break
                     }
                 }
             }
+
+            // If a switch has been marked, make the switch and mark that a switch has been done
             if (shouldSwitch) {
-                /*If a switch has been marked, make the switch
-                and mark that a switch has been done:*/
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
-                //Each time a switch is done, increase this count by 1:
                 switchcount++;
+
             } else {
-                /*If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again.*/
-                if (switchcount === 0 && dir === "asc") {
-                    dir = "desc";
+                if (switchcount === 0 && direction === "asc") {
+                    direction = "desc";
                     switching = true;
                 }
             }
