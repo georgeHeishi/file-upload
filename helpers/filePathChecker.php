@@ -1,5 +1,5 @@
 <?php
-define("ROOT_PATH", "../files/");
+define("ROOT_PATH", "/home/xlapcak/public_html/files/");
 
 //Gets substring of path that resembles path to .. directory
 //returns string without ROOT_PATH and last directory name
