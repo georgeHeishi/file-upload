@@ -1,8 +1,15 @@
 <?php
 include 'helpers/filePathChecker.php';
-$subPath = $_GET['dir'] ?? null;
-$path = '/home/xlapcak/public_html/files/' . $subPath;
-$files = scandir($path); ?>
+try {
+    $subPath = $_GET['dir'] ?? null;
+    $path = '/home/xlapcak/public_html/files/' . $subPath;
+    if (!($files = scandir($path))) {
+        throw new Exception('Invalid path');
+    }
+}catch(Exception $e){
+    header( 'Location: /file-upload/ ');
+}
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
