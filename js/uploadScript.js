@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#submit').addEventListener('click', () => {
         const form = new FormData(document.querySelector('#file-uploader'));
-        const url = 'uploadController.php'
+        const url = 'controller/uploadController.php'
         const request = new Request(url, {
             method: 'POST',
             body: form
