@@ -10,12 +10,13 @@
 </head>
 <body>
 <div class="container">
-    <header class="row site-header">
+    <header class="row site-header mt-3 mb-3">
         <div class="col-lg">
             <h1 id="main-branding">File Uploader</h1>
         </div>
+        <hr>
     </header>
-    <main class="row site-content">
+    <main class="row site-content mt-5">
         <div class="col-lg">
             <div class="container">
                 <div class="row">
@@ -45,14 +46,16 @@
             </div>
         </div>
     </main>
-    <footer class="row site-footer">
-        <div class="col-lg">
-            <p>
-                Toto je koniec stranky.
-            </p>
-        </div>
-    </footer>
 </div>
-
+<footer class="site-footer">
+    <div class="container">
+        <hr>
+        <ul>
+            <li><a>Juraj Lapčák</a></li>
+            <li><p>AIS: 97855</p></li>
+            <li><a class="link-text" href="mailto:lapcakjuraj@gmail.com">lapcakjuraj@gmail.com</a></li>
+        </ul>
+    </div>
+</footer>
 </body>
 </html>

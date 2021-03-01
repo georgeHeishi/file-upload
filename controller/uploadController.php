@@ -38,7 +38,7 @@ try {
     // DO NOT USE $_FILES['fileInput']['name'] WITHOUT ANY VALIDATION !!
     // On this example, obtain safe unique name from its binary data.
     if (!move_uploaded_file(
-        $_FILES['fileInput']['tmp_name'], '../files/'.$_POST['fileName'] . '_' . time() . "." . $ext
+        $_FILES['fileInput']['tmp_name'], '../files/' . $_POST['fileName'] . '_' . time() . "." . $ext
     )) {
         throw new RuntimeException('Failed to move uploaded file.');
     }
