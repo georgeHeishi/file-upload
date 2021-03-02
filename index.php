@@ -5,9 +5,9 @@ try {
     $path = '/home/xlapcak/public_html/files/' . $subPath;
     if (!($files = scandir($path))) {
         throw new Exception('Invalid path');
-    }else if(substr_count(substractQuery($path), '..') > 0){
+    } else if (substr_count(substractQuery($path), '..') > 0) {
         throw new Exception('Forbidden path');
-    }else if(substr_count(substractQuery($path), '.') > 0){
+    } else if (substr_count(substractQuery($path), '.') > 0) {
         throw new Exception('Forbidden path');
     }
 } catch (Exception $e) {
@@ -89,26 +89,22 @@ try {
                     ?>
                     <tr>
                         <td>
-                            <?php if (!strcmp($fileType, "dir")) { ?>
-                                <a class="link-text"
-                                   href="?dir=<?php echo subtractLowerPath($path, $file); ?>">
-                                    <?php echo $file; ?>
-                                </a>
-                            <?php } else { ?>
-                                <p>
-                                    <?php echo $file; ?>
-                                </p>
-                            <?php } ?>
+                            <?php if (!strcmp($fileType, "dir")) {
+                                echo '<a class="link-text"
+                                   href="?dir=' . subtractLowerPath($path, $file) . '">' . $file . '</a>';
+                            } else {
+                                echo '<p>' . $file . '</p>';
+                            } ?>
                         </td>
                         <td>
-                            <p>
-                                <?php echo $fileSize; ?>
-                            </p>
+                            <?php
+                            echo '<p>' . $fileSize . '</p>';
+                            ?>
                         </td>
                         <td>
-                            <p>
-                                <?php echo $fileTimestamp; ?>
-                            </p>
+                            <?php
+                            echo '<p>' . $fileTimestamp . '</p>';
+                            ?>
                         </td>
                     </tr>
                     <?php $row++;
